@@ -8,6 +8,11 @@
 #ifndef MY_RUNNER_H_
 #define MY_RUNNER_H_
 
+typedef struct runner {
+	sfRenderWindow *window;
+	sfEvent event;
+} runner_t;
+
 typedef struct object {
 	sfSprite *sprite;
 	sfTexture *texture;
