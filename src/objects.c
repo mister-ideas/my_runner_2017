@@ -11,7 +11,7 @@
 #include "my.h"
 #include "my_runner.h"
 
-object_t *new_obj(char *path, sfVector2f pos, sfVector2f move, sfIntRect rect)
+object_t *new_obj(const char *path, sfVector2f pos, sfIntRect rect)
 {
 	object_t *object = malloc(sizeof(object));
 
@@ -22,7 +22,6 @@ object_t *new_obj(char *path, sfVector2f pos, sfVector2f move, sfIntRect rect)
 	sfSprite_setTexture(object->sprite, object->texture, sfTrue);
 	sfSprite_setTextureRect(object->sprite, rect);
 	sfSprite_setPosition(object->sprite, pos);
-	sfSprite_move(object->sprite, move);
 	return (object);
 }
 
