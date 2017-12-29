@@ -7,7 +7,10 @@
 
 SRC_DIR=	src
 
-SRC=		$(SRC_DIR)/my_runner.c
+SRC=		$(SRC_DIR)/my_runner.c	\
+		$(SRC_DIR)/events.c	\
+		$(SRC_DIR)/objects.c	\
+		$(SRC_DIR)/parallax.c
 
 OBJ=		$(SRC:.c=.o)
 

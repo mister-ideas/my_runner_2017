@@ -20,38 +20,6 @@ sfRenderWindow *window_create(unsigned int width, unsigned int height)
 	return (window);
 }
 
-object_t *new_obj(char *path, sfVector2f pos, sfVector2f move, sfIntRect rect)
-{
-	object_t *object = malloc(sizeof(object));
-
-	object->texture = sfTexture_createFromFile(path, NULL);
-	if (!object->texture)
-		return (NULL);
-	object->sprite = sfSprite_create();
-	sfSprite_setTexture(object->sprite, object->texture, sfTrue);
-	sfSprite_setTextureRect(object->sprite, rect);
-	sfSprite_setPosition(object->sprite, pos);
-	sfSprite_move(object->sprite, move);
-	return (object);
-}
-
-void destroy_obj(object_t *object)
-{
-	sfTexture_destroy(object->texture);
-	sfSprite_destroy(object->sprite);
-	free(object);
-}
-
-void check_events(runner_t *runner)
-{
-	while (sfRenderWindow_pollEvent(runner->window, &runner->event)) {
-		if (runner->event.type == sfEvtClosed
-		|| (runner->event.type == sfEvtKeyPressed
-		&& runner->event.key.code == sfKeyEscape))
-			sfRenderWindow_close(runner->window);
-	}
-}
-
 int main(int ac, char **av)
 {
 	runner_t runner;
