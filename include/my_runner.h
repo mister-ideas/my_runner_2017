@@ -26,6 +26,13 @@ typedef struct parallax {
 } parallax_t;
 
 void check_events(runner_t *runner);
+void window_display(runner_t *runner, parallax_t *parallax);
+void game_free(runner_t *runner, parallax_t *parallax);
+
+int init_back(parallax_t *parallax, const char* path);
+int init_mid(parallax_t *parallax, const char* path);
+int init_top(parallax_t *parallax, const char* path);
+int init_parallax(parallax_t *parallax);
 
 sfRenderWindow *window_create(unsigned int width, unsigned int height);
 
