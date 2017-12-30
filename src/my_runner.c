@@ -56,6 +56,9 @@ int main(int ac, char **av)
 		return (84);
 	while (sfRenderWindow_isOpen(runner.window)) {
 		check_events(&runner);
+		sfSprite_move(parallax.back_s, parallax.back_m);
+		sfSprite_move(parallax.mid_s, parallax.mid_m);
+		sfSprite_move(parallax.top_s, parallax.top_m);
 		window_display(&runner, &parallax);
 	}
 	game_free(&runner, &parallax);

@@ -18,6 +18,10 @@ int init_back(parallax_t *parallax, const char* path)
 		return (1);
 	parallax->back_s = sfSprite_create();
 	sfSprite_setTexture(parallax->back_s, parallax->back_t, sfTrue);
+	parallax->back_p.x = 0;
+	parallax->back_p.y = 140;
+	sfSprite_setPosition(parallax->back_s, parallax->back_p);
+	parallax->back_m.x = 1;
 	return (0);
 }
 
@@ -28,6 +32,11 @@ int init_mid(parallax_t *parallax, const char* path)
 		return (1);
 	parallax->mid_s = sfSprite_create();
 	sfSprite_setTexture(parallax->mid_s, parallax->mid_t, sfTrue);
+	parallax->mid_p.x = 0;
+	parallax->mid_p.y = 280;
+	sfSprite_setPosition(parallax->mid_s, parallax->mid_p);
+	parallax->mid_m.x = 2;
+	sfSprite_move(parallax->back_s, parallax->back_m);
 	return (0);
 }
 
@@ -38,6 +47,11 @@ int init_top(parallax_t *parallax, const char* path)
 		return (1);
 	parallax->top_s = sfSprite_create();
 	sfSprite_setTexture(parallax->top_s, parallax->top_t, sfTrue);
+	parallax->top_p.x = 0;
+	parallax->top_p.y = 560;
+	sfSprite_setPosition(parallax->top_s, parallax->top_p);
+	parallax->top_m.x = 3;
+	sfSprite_move(parallax->back_s, parallax->back_m);
 	return (0);
 }
 

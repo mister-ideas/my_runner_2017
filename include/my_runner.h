@@ -17,12 +17,15 @@ typedef struct parallax {
 	sfSprite *back_s;
 	sfTexture *back_t;
 	sfVector2f back_p;
+	sfVector2f back_m;
 	sfSprite *mid_s;
 	sfTexture *mid_t;
 	sfVector2f mid_p;
+	sfVector2f mid_m;
 	sfSprite *top_s;
 	sfTexture *top_t;
 	sfVector2f top_p;
+	sfVector2f top_m;
 } parallax_t;
 
 void check_events(runner_t *runner);
