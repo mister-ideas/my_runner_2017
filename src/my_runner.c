@@ -23,20 +23,20 @@ sfRenderWindow *window_create(unsigned int width, unsigned int height)
 void window_display(runner_t *runner, parallax_t *parallax)
 {
 	sfRenderWindow_clear(runner->window, sfBlack);
-	sfRenderWindow_drawSprite(runner->window, parallax->back_s, NULL);
-	sfRenderWindow_drawSprite(runner->window, parallax->mid_s, NULL);
-	sfRenderWindow_drawSprite(runner->window, parallax->top_s, NULL);
+	sfRenderWindow_drawSprite(runner->window, parallax->m1_s, NULL);
+	sfRenderWindow_drawSprite(runner->window, parallax->m2_s, NULL);
+	sfRenderWindow_drawSprite(runner->window, parallax->m3_s, NULL);
 	sfRenderWindow_display(runner->window);
 }
 
 void game_free(runner_t *runner, parallax_t *parallax)
 {
-	sfTexture_destroy(parallax->back_t);
-	sfTexture_destroy(parallax->mid_t);
-	sfTexture_destroy(parallax->top_t);
-	sfSprite_destroy(parallax->back_s);
-	sfSprite_destroy(parallax->mid_s);
-	sfSprite_destroy(parallax->top_s);
+	sfTexture_destroy(parallax->m1_t);
+	sfTexture_destroy(parallax->m2_t);
+	sfTexture_destroy(parallax->m3_t);
+	sfSprite_destroy(parallax->m1_s);
+	sfSprite_destroy(parallax->m2_s);
+	sfSprite_destroy(parallax->m3_s);
 	sfRenderWindow_destroy(runner->window);
 }
 
@@ -56,9 +56,9 @@ int main(int ac, char **av)
 		return (84);
 	while (sfRenderWindow_isOpen(runner.window)) {
 		check_events(&runner);
-		sfSprite_move(parallax.back_s, parallax.back_m);
-		sfSprite_move(parallax.mid_s, parallax.mid_m);
-		sfSprite_move(parallax.top_s, parallax.top_m);
+		sfSprite_move(parallax.m1_s, parallax.m1_m);
+		sfSprite_move(parallax.m2_s, parallax.m2_m);
+		sfSprite_move(parallax.m3_s, parallax.m3_m);
 		window_display(&runner, &parallax);
 	}
 	game_free(&runner, &parallax);

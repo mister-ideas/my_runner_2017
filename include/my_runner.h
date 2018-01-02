@@ -8,6 +8,10 @@
 #ifndef MY_RUNNER_H_
 #define MY_RUNNER_H_
 
+#define M1_PATH "ressources/img/m1.png"
+#define M2_PATH "ressources/img/m2.png"
+#define M3_PATH "ressources/img/m3.png"
+
 typedef struct runner {
 	sfRenderWindow *window;
 	sfEvent event;
@@ -18,14 +22,22 @@ typedef struct parallax {
 	sfTexture *back_t;
 	sfVector2f back_p;
 	sfVector2f back_m;
-	sfSprite *mid_s;
-	sfTexture *mid_t;
-	sfVector2f mid_p;
-	sfVector2f mid_m;
-	sfSprite *top_s;
-	sfTexture *top_t;
-	sfVector2f top_p;
-	sfVector2f top_m;
+	sfSprite *m1_s;
+	sfTexture *m1_t;
+	sfVector2f m1_p;
+	sfVector2f m1_m;
+	sfSprite *m2_s;
+	sfTexture *m2_t;
+	sfVector2f m2_p;
+	sfVector2f m2_m;
+	sfSprite *m3_s;
+	sfTexture *m3_t;
+	sfVector2f m3_p;
+	sfVector2f m3_m;
+	sfSprite *road_s;
+	sfTexture *road_t;
+	sfVector2f road_p;
+	sfVector2f road_m;
 } parallax_t;
 
 void check_events(runner_t *runner);
