@@ -42,7 +42,7 @@ typedef struct parallax {
 	sfVector2f road_m;
 } parallax_t;
 
-void check_events(runner_t *runner);
+void check_events(runner_t *runner, parallax_t *parallax);
 void window_display(runner_t *runner, parallax_t *parallax);
 void game_free(runner_t *runner, parallax_t *parallax);
 

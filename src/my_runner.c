@@ -61,7 +61,7 @@ int main(int ac, char **av)
 	if (init_parallax(&parallax) == 1)
 		return (84);
 	while (sfRenderWindow_isOpen(runner.window)) {
-		check_events(&runner);
+		check_events(&runner, &parallax);
 		sfSprite_move(parallax.back_s, parallax.back_m);
 		sfSprite_move(parallax.m1_s, parallax.m1_m);
 		sfSprite_move(parallax.m2_s, parallax.m2_m);
