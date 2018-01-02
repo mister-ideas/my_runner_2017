@@ -60,6 +60,8 @@ int main(int ac, char **av)
 		return (0);
 	if (init_parallax(&parallax) == 1)
 		return (84);
+	sfRenderWindow_setMouseCursorVisible(runner.window, sfFalse);
+	sfRenderWindow_setFramerateLimit(runner.window, 60);
 	while (sfRenderWindow_isOpen(runner.window)) {
 		check_events(&runner, &parallax);
 		sfSprite_move(parallax.back_s, parallax.back_m);
