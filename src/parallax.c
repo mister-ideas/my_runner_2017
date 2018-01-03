@@ -80,18 +80,3 @@ int init_road(parallax_t *parallax)
 	parallax->road_m.x = -4;
 	return (0);
 }
-
-int init_parallax(parallax_t *parallax)
-{
-	if (init_back(parallax) == 1)
-		return (1);
-	if (init_m1(parallax) ==  1)
-		return (1);
-	if (init_m2(parallax) == 1)
-		return (1);
-	if (init_m3(parallax) == 1)
-		return (1);
-	if (init_road(parallax) == 1)
-		return (1);
-	return (0);
-}

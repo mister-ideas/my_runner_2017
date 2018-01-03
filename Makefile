@@ -8,8 +8,11 @@
 SRC_DIR=	src
 
 SRC=		$(SRC_DIR)/my_runner.c	\
+		$(SRC_DIR)/init.c	\
+		$(SRC_DIR)/parallax.c	\
 		$(SRC_DIR)/events.c	\
-		$(SRC_DIR)/parallax.c
+		$(SRC_DIR)/display.c	\
+		$(SRC_DIR)/tools.c
 
 OBJ=		$(SRC:.c=.o)
 

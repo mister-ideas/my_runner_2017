@@ -42,12 +42,36 @@ typedef struct parallax {
 	sfVector2f road_m;
 } parallax_t;
 
-void check_events(runner_t *runner, parallax_t *parallax);
-void window_display(runner_t *runner, parallax_t *parallax);
-void game_free(runner_t *runner, parallax_t *parallax);
+/* my_runner.c */
+
+void game_loop(runner_t *runner, parallax_t *parallax);
+
+/* init.c */
 
 int init_parallax(parallax_t *parallax);
+int game_init(runner_t *runner, parallax_t *parallax);
+
+/* parallax.c */
+
+int init_back(parallax_t *parallax);
+int init_m1(parallax_t *parallax);
+int init_m2(parallax_t *parallax);
+int init_m3(parallax_t *parallax);
+int init_road(parallax_t *parallax);
+
+/* events.c */
+
+void check_window(runner_t *runner);
+void check_layers(parallax_t *parallax);
+void check_events(runner_t *runner, parallax_t *parallax);
+
+/* display.c */
+
+void window_display(runner_t *runner, parallax_t *parallax);
+
+/* tools.c */
 
 sfRenderWindow *window_create(unsigned int width, unsigned int height);
+void game_free(runner_t *runner, parallax_t *parallax);
 
 #endif
