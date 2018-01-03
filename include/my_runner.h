@@ -18,6 +18,9 @@
 typedef struct runner {
 	sfRenderWindow *window;
 	sfEvent event;
+	sfClock *clock;
+	sfTime time;
+	float seconds;
 } runner_t;
 
 typedef struct parallax {
@@ -47,11 +50,12 @@ typedef struct objects {
 	sfSprite *char_s;
 	sfTexture *char_t;
 	sfVector2f char_p;
+	sfIntRect char_rect;
 } objects_t;
 
 /* my_runner.c */
 
-void game_loop(runner_t *runner, parallax_t *parallax);
+void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* init.c */
 
@@ -79,7 +83,7 @@ void check_events(runner_t *runner, parallax_t *parallax);
 
 /* display.c */
 
-void window_display(runner_t *runner, parallax_t *parallax);
+void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* tools.c */
 

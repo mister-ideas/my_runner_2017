@@ -39,6 +39,7 @@ int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects)
 		return (1);
 	if (init_objects(objects) == 1)
 		return (1);
+	runner->clock = sfClock_create();
 	sfRenderWindow_setMouseCursorVisible(runner->window, sfFalse);
 	sfRenderWindow_setFramerateLimit(runner->window, 60);
 	return (0);

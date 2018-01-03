@@ -11,7 +11,7 @@
 #include "my.h"
 #include "my_runner.h"
 
-void window_display(runner_t *runner, parallax_t *parallax)
+void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	sfRenderWindow_clear(runner->window, sfBlack);
 	sfRenderWindow_drawSprite(runner->window, parallax->back_s, NULL);
@@ -19,5 +19,6 @@ void window_display(runner_t *runner, parallax_t *parallax)
 	sfRenderWindow_drawSprite(runner->window, parallax->m2_s, NULL);
 	sfRenderWindow_drawSprite(runner->window, parallax->m3_s, NULL);
 	sfRenderWindow_drawSprite(runner->window, parallax->road_s, NULL);
+	sfRenderWindow_drawSprite(runner->window, objects->char_s, NULL);
 	sfRenderWindow_display(runner->window);
 }

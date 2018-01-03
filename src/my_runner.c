@@ -6,12 +6,13 @@
 */
 
 #include <SFML/Graphics.h>
+#include <SFML/System.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "my.h"
 #include "my_runner.h"
 
-void game_loop(runner_t *runner, parallax_t *parallax)
+void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	check_events(runner, parallax);
 	sfSprite_move(parallax->back_s, parallax->back_m);
@@ -19,7 +20,17 @@ void game_loop(runner_t *runner, parallax_t *parallax)
 	sfSprite_move(parallax->m2_s, parallax->m2_m);
 	sfSprite_move(parallax->m3_s, parallax->m3_m);
 	sfSprite_move(parallax->road_s, parallax->road_m);
-	window_display(runner, parallax);
+	sfSprite_setTextureRect(objects->char_s, objects->char_rect);
+	runner->time = sfClock_getElapsedTime(runner->clock);
+	runner->seconds = runner->time.microseconds / 1000000.0;
+	if (runner->seconds > 0.06) {
+		if (objects->char_rect.left < 744)
+			objects->char_rect.left += 84;
+		else
+			objects->char_rect.left = 330;
+		sfClock_restart(runner->clock);
+	}
+	window_display(runner, parallax, objects);
 }
 
 int main(int ac, char **av)
@@ -38,7 +49,7 @@ int main(int ac, char **av)
 	if (game_init(&runner, &parallax, &objects) == 1)
 		return (84);
 	while (sfRenderWindow_isOpen(runner.window))
-		game_loop(&runner, &parallax);
+		game_loop(&runner, &parallax, &objects);
 	game_free(&runner, &parallax, &objects);
 	return (0);
 }
