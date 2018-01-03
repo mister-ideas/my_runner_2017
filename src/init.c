@@ -26,9 +26,18 @@ int init_parallax(parallax_t *parallax)
 	return (0);
 }
 
-int game_init(runner_t *runner, parallax_t *parallax)
+int init_objects(objects_t *objects)
+{
+	if (init_character(objects) == 1)
+		return (1);
+	return (0);
+}
+
+int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	if (init_parallax(parallax) == 1)
+		return (1);
+	if (init_objects(objects) == 1)
 		return (1);
 	sfRenderWindow_setMouseCursorVisible(runner->window, sfFalse);
 	sfRenderWindow_setFramerateLimit(runner->window, 60);

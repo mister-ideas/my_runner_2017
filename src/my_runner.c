@@ -26,6 +26,7 @@ int main(int ac, char **av)
 {
 	runner_t runner;
 	parallax_t parallax;
+	objects_t objects;
 
 	runner.window = window_create(1920, 1080);
 	if (!runner.window)
@@ -34,10 +35,10 @@ int main(int ac, char **av)
 		return (84);
 	if (av[1][0] == '-' && av[1][1] == 'h')
 		return (0);
-	if (game_init(&runner, &parallax) == 1)
+	if (game_init(&runner, &parallax, &objects) == 1)
 		return (84);
 	while (sfRenderWindow_isOpen(runner.window))
 		game_loop(&runner, &parallax);
-	game_free(&runner, &parallax);
+	game_free(&runner, &parallax, &objects);
 	return (0);
 }

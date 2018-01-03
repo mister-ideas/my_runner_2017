@@ -33,7 +33,7 @@ int init_m1(parallax_t *parallax)
 	parallax->m1_s = sfSprite_create();
 	sfSprite_setTexture(parallax->m1_s, parallax->m1_t, sfTrue);
 	parallax->m1_p.x = 0;
-	parallax->m1_p.y = 30;
+	parallax->m1_p.y = 20;
 	sfSprite_setPosition(parallax->m1_s, parallax->m1_p);
 	parallax->m1_m.x = -2;
 	return (0);
@@ -47,7 +47,7 @@ int init_m2(parallax_t *parallax)
 	parallax->m2_s = sfSprite_create();
 	sfSprite_setTexture(parallax->m2_s, parallax->m2_t, sfTrue);
 	parallax->m2_p.x = 0;
-	parallax->m2_p.y = 150;
+	parallax->m2_p.y = 120;
 	sfSprite_setPosition(parallax->m2_s, parallax->m2_p);
 	parallax->m2_m.x = -4;
 	return (0);
@@ -61,7 +61,7 @@ int init_m3(parallax_t *parallax)
 	parallax->m3_s = sfSprite_create();
 	sfSprite_setTexture(parallax->m3_s, parallax->m3_t, sfTrue);
 	parallax->m3_p.x = 0;
-	parallax->m3_p.y = 500;
+	parallax->m3_p.y = 460;
 	sfSprite_setPosition(parallax->m3_s, parallax->m3_p);
 	parallax->m3_m.x = -6;
 	return (0);
@@ -75,7 +75,7 @@ int init_road(parallax_t *parallax)
 	parallax->road_s = sfSprite_create();
 	sfSprite_setTexture(parallax->road_s, parallax->road_t, sfTrue);
 	parallax->road_p.x = 0;
-	parallax->road_p.y = 950;
+	parallax->road_p.y = 980;
 	sfSprite_setPosition(parallax->road_s, parallax->road_p);
 	parallax->road_m.x = 0;
 	return (0);

@@ -20,17 +20,19 @@ sfRenderWindow *window_create(unsigned int width, unsigned int height)
 	return (window);
 }
 
-void game_free(runner_t *runner, parallax_t *parallax)
+void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	sfTexture_destroy(parallax->back_t);
 	sfTexture_destroy(parallax->m1_t);
 	sfTexture_destroy(parallax->m2_t);
 	sfTexture_destroy(parallax->m3_t);
 	sfTexture_destroy(parallax->road_t);
+	sfTexture_destroy(objects->char_t);
 	sfSprite_destroy(parallax->back_s);
 	sfSprite_destroy(parallax->m1_s);
 	sfSprite_destroy(parallax->m2_s);
 	sfSprite_destroy(parallax->m3_s);
 	sfSprite_destroy(parallax->road_s);
+	sfSprite_destroy(objects->char_s);
 	sfRenderWindow_destroy(runner->window);
 }

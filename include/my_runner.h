@@ -13,6 +13,7 @@
 #define M2_PATH "ressources/img/m2.png"
 #define M3_PATH "ressources/img/m3.png"
 #define ROAD_PATH "ressources/img/road.png"
+#define CHAR_PATH "ressources/img/character.png"
 
 typedef struct runner {
 	sfRenderWindow *window;
@@ -42,6 +43,12 @@ typedef struct parallax {
 	sfVector2f road_m;
 } parallax_t;
 
+typedef struct objects {
+	sfSprite *char_s;
+	sfTexture *char_t;
+	sfVector2f char_p;
+} objects_t;
+
 /* my_runner.c */
 
 void game_loop(runner_t *runner, parallax_t *parallax);
@@ -49,7 +56,8 @@ void game_loop(runner_t *runner, parallax_t *parallax);
 /* init.c */
 
 int init_parallax(parallax_t *parallax);
-int game_init(runner_t *runner, parallax_t *parallax);
+int init_objects(objects_t *objects);
+int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* parallax.c */
 
@@ -58,6 +66,10 @@ int init_m1(parallax_t *parallax);
 int init_m2(parallax_t *parallax);
 int init_m3(parallax_t *parallax);
 int init_road(parallax_t *parallax);
+
+/* objects.c */
+
+int init_character(objects_t *objects);
 
 /* events.c */
 
@@ -72,6 +84,6 @@ void window_display(runner_t *runner, parallax_t *parallax);
 /* tools.c */
 
 sfRenderWindow *window_create(unsigned int width, unsigned int height);
-void game_free(runner_t *runner, parallax_t *parallax);
+void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 #endif
