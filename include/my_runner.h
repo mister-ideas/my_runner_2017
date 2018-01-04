@@ -50,6 +50,7 @@ typedef struct objects {
 	sfSprite *char_s;
 	sfTexture *char_t;
 	sfVector2f char_p;
+	sfVector2f char_m;
 	sfIntRect char_rect;
 } objects_t;
 
@@ -77,9 +78,9 @@ int init_character(objects_t *objects);
 
 /* events.c */
 
-void check_window(runner_t *runner);
+void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
-void check_events(runner_t *runner, parallax_t *parallax);
+void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* display.c */
 

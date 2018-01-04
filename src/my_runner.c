@@ -14,12 +14,13 @@
 
 void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
-	check_events(runner, parallax);
+	check_events(runner, parallax, objects);
 	sfSprite_move(parallax->back_s, parallax->back_m);
 	sfSprite_move(parallax->m1_s, parallax->m1_m);
 	sfSprite_move(parallax->m2_s, parallax->m2_m);
 	sfSprite_move(parallax->m3_s, parallax->m3_m);
 	sfSprite_move(parallax->road_s, parallax->road_m);
+	sfSprite_move(objects->char_s, objects->char_m);
 	sfSprite_setTextureRect(objects->char_s, objects->char_rect);
 	runner->time = sfClock_getElapsedTime(runner->clock);
 	runner->seconds = runner->time.microseconds / 1000000.0;

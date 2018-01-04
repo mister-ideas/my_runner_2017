@@ -77,6 +77,6 @@ int init_road(parallax_t *parallax)
 	parallax->road_p.x = 0;
 	parallax->road_p.y = 760;
 	sfSprite_setPosition(parallax->road_s, parallax->road_p);
-	parallax->road_m.x = -10;
+	parallax->road_m.x = -12;
 	return (0);
 }
