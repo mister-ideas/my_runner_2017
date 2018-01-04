@@ -8,6 +8,9 @@
 #ifndef MY_RUNNER_H_
 #define MY_RUNNER_H_
 
+#include <SFML/Graphics.h>
+#include <SFML/Audio.h>
+
 #define BACK_PATH "ressources/img/back.jpg"
 #define M1_PATH "ressources/img/m1.png"
 #define M2_PATH "ressources/img/m2.png"
@@ -15,9 +18,14 @@
 #define ROAD_PATH "ressources/img/road.png"
 #define CHAR_PATH "ressources/img/character.png"
 
+#define M_BACK_PATH "ressources/music/back.wav"
+#define M_JUMP_PATH "ressources/music/jump.wav"
+#define M_LOSE_PATH "ressources/music/lose.wav"
+
 typedef struct runner {
 	sfRenderWindow *window;
 	sfEvent event;
+	sfMusic *m_back;
 	sfClock *clock;
 	sfTime time;
 	float seconds;
