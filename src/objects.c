@@ -13,10 +13,10 @@
 
 int init_character(objects_t *objects)
 {
-	objects->char_rect.top = 0;
-	objects->char_rect.left = 330;
-	objects->char_rect.width = 86;
-	objects->char_rect.height = 86;
+	objects->char_r.top = 0;
+	objects->char_r.left = 330;
+	objects->char_r.width = 86;
+	objects->char_r.height = 86;
 	objects->char_t = sfTexture_createFromFile(CHAR_PATH, NULL);
 	if (!objects->char_t)
 		return (1);

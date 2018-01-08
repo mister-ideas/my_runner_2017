@@ -57,10 +57,12 @@ typedef struct parallax {
 
 typedef struct objects {
 	sfSprite *char_s;
+	sfSprite *obst_s;
 	sfTexture *char_t;
 	sfVector2f char_p;
+	sfVector2f obst_p;
 	sfVector2f char_m;
-	sfIntRect char_rect;
+	sfIntRect char_r;
 } objects_t;
 
 /* my_runner.c */
