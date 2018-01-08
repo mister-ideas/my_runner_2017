@@ -35,5 +35,6 @@ void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfSprite_destroy(parallax->road_s);
 	sfSprite_destroy(objects->char_s);
 	sfMusic_destroy(runner->m_back);
+	sfMusic_destroy(runner->m_jump);
 	sfRenderWindow_destroy(runner->window);
 }

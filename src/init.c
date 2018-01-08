@@ -41,6 +41,9 @@ int init_music(runner_t *runner)
 		return (1);
 	sfMusic_setLoop(runner->m_back, sfTrue);
 	sfMusic_play(runner->m_back);
+	runner->m_jump = sfMusic_createFromFile(M_JUMP_PATH);
+	if (!runner->m_jump)
+		return (1);
 	return (0);
 }
 

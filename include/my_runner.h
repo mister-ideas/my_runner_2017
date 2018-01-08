@@ -26,6 +26,7 @@ typedef struct runner {
 	sfRenderWindow *window;
 	sfEvent event;
 	sfMusic *m_back;
+	sfMusic *m_jump;
 	sfClock *clock;
 	sfTime time;
 	float seconds;
