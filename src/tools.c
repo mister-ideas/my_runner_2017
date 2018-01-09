@@ -28,12 +28,14 @@ void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfTexture_destroy(parallax->m3_t);
 	sfTexture_destroy(parallax->road_t);
 	sfTexture_destroy(objects->char_t);
+	sfTexture_destroy(objects->obst_t);
 	sfSprite_destroy(parallax->back_s);
 	sfSprite_destroy(parallax->m1_s);
 	sfSprite_destroy(parallax->m2_s);
 	sfSprite_destroy(parallax->m3_s);
 	sfSprite_destroy(parallax->road_s);
 	sfSprite_destroy(objects->char_s);
+	sfSprite_destroy(objects->obst_s);
 	sfMusic_destroy(runner->m_back);
 	sfMusic_destroy(runner->m_jump);
 	sfRenderWindow_destroy(runner->window);

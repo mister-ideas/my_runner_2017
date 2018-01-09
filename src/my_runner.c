@@ -12,6 +12,13 @@
 #include "my.h"
 #include "my_runner.h"
 
+void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects)
+{
+	check_keys(runner, objects);
+	check_layers(parallax);
+	check_objects(objects);
+}
+
 void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	check_events(runner, parallax, objects);
@@ -26,7 +33,7 @@ void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfSprite_setTextureRect(objects->obst_s, objects->obst_r);
 	runner->time = sfClock_getElapsedTime(runner->clock);
 	runner->seconds = runner->time.microseconds / 1000000.0;
-	if (runner->seconds > 0.06) {
+	if (runner->seconds > 0.05) {
 		if (objects->char_r.left < 920)
 			objects->char_r.left += 84;
 		else

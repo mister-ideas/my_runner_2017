@@ -51,9 +51,10 @@ void check_layers(parallax_t *parallax)
 	sfSprite_setPosition(parallax->road_s, parallax->road_p);
 }
 
-void check_character(objects_t *objects)
+void check_objects(objects_t *objects)
 {
 	objects->char_p = sfSprite_getPosition(objects->char_s);
+	objects->obst_p = sfSprite_getPosition(objects->obst_s);
 	if (objects->char_p.y < 780)
 		objects->char_m.y = 4;
 	if (objects->char_p.y > 930) {
@@ -61,21 +62,8 @@ void check_character(objects_t *objects)
 		objects->char_p.y = 930;
 		sfSprite_setPosition(objects->char_s, objects->char_p);
 	}
-}
-
-void check_obstacle(objects_t *objects)
-{
-	objects->obst_p = sfSprite_getPosition(objects->obst_s);
-	if (objects->obst_p.x < 0) {
-		objects->obst_p.x = 2020;
+	if (objects->obst_p.x < -100) {
+		objects->obst_p.x = 1920;
 		sfSprite_setPosition(objects->obst_s, objects->obst_p);
 	}
-}
-
-void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects)
-{
-	check_keys(runner, objects);
-	check_layers(parallax);
-	check_character(objects);
-	check_obstacle(objects);
 }
