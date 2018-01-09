@@ -17,6 +17,7 @@
 #define M3_PATH "ressources/img/m3.png"
 #define ROAD_PATH "ressources/img/road.png"
 #define CHAR_PATH "ressources/img/character.png"
+#define OBST_PATH "ressources/img/obstacle.png"
 
 #define M_BACK_PATH "ressources/music/back.wav"
 #define M_JUMP_PATH "ressources/music/jump.wav"
@@ -59,10 +60,13 @@ typedef struct objects {
 	sfSprite *char_s;
 	sfSprite *obst_s;
 	sfTexture *char_t;
+	sfTexture *obst_t;
 	sfVector2f char_p;
 	sfVector2f obst_p;
 	sfVector2f char_m;
+	sfVector2f obst_m;
 	sfIntRect char_r;
+	sfIntRect obst_r;
 } objects_t;
 
 /* my_runner.c */
@@ -86,6 +90,7 @@ int init_road(parallax_t *parallax);
 /* objects.c */
 
 int init_character(objects_t *objects);
+int init_obstacle(objects_t *objects);
 
 /* events.c */
 

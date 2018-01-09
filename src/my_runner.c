@@ -21,14 +21,20 @@ void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfSprite_move(parallax->m3_s, parallax->m3_m);
 	sfSprite_move(parallax->road_s, parallax->road_m);
 	sfSprite_move(objects->char_s, objects->char_m);
+	sfSprite_move(objects->obst_s, objects->obst_m);
 	sfSprite_setTextureRect(objects->char_s, objects->char_r);
+	sfSprite_setTextureRect(objects->obst_s, objects->obst_r);
 	runner->time = sfClock_getElapsedTime(runner->clock);
 	runner->seconds = runner->time.microseconds / 1000000.0;
 	if (runner->seconds > 0.06) {
-		if (objects->char_r.left > 420)
-			objects->char_r.left -= 82;
+		if (objects->char_r.left < 920)
+			objects->char_r.left += 84;
 		else
-			objects->char_r.left = 830;
+			objects->char_r.left = 0;
+		if (objects->obst_r.left < 300)
+			objects->obst_r.left += 100;
+		else
+			objects->obst_r.left = 0;
 		sfClock_restart(runner->clock);
 	}
 	window_display(runner, parallax, objects);

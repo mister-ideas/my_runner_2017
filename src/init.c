@@ -31,6 +31,8 @@ int init_objects(objects_t *objects)
 {
 	if (init_character(objects) == 1)
 		return (1);
+	if (init_obstacle(objects) == 1)
+		return (1);
 	return (0);
 }
 

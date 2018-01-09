@@ -20,5 +20,7 @@ void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfRenderWindow_drawSprite(runner->window, parallax->m3_s, NULL);
 	sfRenderWindow_drawSprite(runner->window, parallax->road_s, NULL);
 	sfRenderWindow_drawSprite(runner->window, objects->char_s, NULL);
+	sfRenderWindow_drawSprite(runner->window, objects->obst_s, NULL);
+	sfRenderWindow_drawSprite(runner->window, objects->obst_s, NULL);
 	sfRenderWindow_display(runner->window);
 }
