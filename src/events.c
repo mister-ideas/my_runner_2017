@@ -62,8 +62,8 @@ void check_objects(objects_t *objects)
 		objects->char_p.y = 930;
 		sfSprite_setPosition(objects->char_s, objects->char_p);
 	}
-	if (objects->obst_p.x < -100) {
-		objects->obst_p.x = 1920;
-		sfSprite_setPosition(objects->obst_s, objects->obst_p);
-	}
+	//if (objects->obst_p.x < -100) {
+	//objects->obst_p.x = 1920;
+	//sfSprite_setPosition(objects->obst_s, objects->obst_p);
+	//}
 }
