@@ -42,7 +42,7 @@ int init_obstacle(objects_t *objects)
 	sfSprite_setTexture(objects->obst_s, objects->obst_t, sfTrue);
 	objects->obst_p.x = 360;
 	objects->obst_p.y = 925;
-	objects->obst_m.x = 0;
+	objects->obst_m.x = -8;
 	sfSprite_setPosition(objects->obst_s, objects->obst_p);
 	return (0);
 }

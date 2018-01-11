@@ -72,11 +72,13 @@ typedef struct objects {
 /* my_runner.c */
 
 void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects);
+void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* init.c */
 
 int init_parallax(parallax_t *parallax);
 int init_objects(objects_t *objects);
+int init_music(runner_t *runner);
 int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* parallax.c */
@@ -96,7 +98,7 @@ int init_obstacle(objects_t *objects);
 
 void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
-void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
+void check_objects(objects_t *objects);
 
 /* display.c */
 
