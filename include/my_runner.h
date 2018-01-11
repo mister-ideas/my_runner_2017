@@ -102,7 +102,7 @@ int init_obstacle(objects_t *objects);
 
 void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
-void check_objects(objects_t *objects);
+void check_objects(runner_t *runner, objects_t *objects);
 
 /* display.c */
 
