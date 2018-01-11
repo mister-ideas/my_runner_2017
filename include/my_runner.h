@@ -8,8 +8,12 @@
 #ifndef MY_RUNNER_H_
 #define MY_RUNNER_H_
 
+#include <stdlib.h>
+#include <stdio.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
+#include <SFML/System.h>
+#include "my.h"
 
 #define BACK_PATH "ressources/img/back.jpg"
 #define M1_PATH "ressources/img/m1.png"

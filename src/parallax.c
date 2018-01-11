@@ -5,10 +5,6 @@
 ** parallax.c
 */
 
-#include <SFML/Graphics.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "my.h"
 #include "my_runner.h"
 
 int init_back(parallax_t *parallax)

@@ -5,10 +5,6 @@
 ** events.c
 */
 
-#include <SFML/Graphics.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "my.h"
 #include "my_runner.h"
 
 void check_keys(runner_t *runner, objects_t *objects)

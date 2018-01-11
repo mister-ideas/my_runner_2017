@@ -5,10 +5,6 @@
 ** tools.c
 */
 
-#include <SFML/Graphics.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "my.h"
 #include "my_runner.h"
 
 sfRenderWindow *window_create(unsigned int width, unsigned int height)

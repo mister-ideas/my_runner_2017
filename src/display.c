@@ -5,10 +5,6 @@
 ** display.c
 */
 
-#include <SFML/Graphics.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "my.h"
 #include "my_runner.h"
 
 void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects)

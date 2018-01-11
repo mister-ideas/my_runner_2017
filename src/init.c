@@ -5,11 +5,6 @@
 ** init.c
 */
 
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include "my.h"
 #include "my_runner.h"
 
 int init_parallax(parallax_t *parallax)
