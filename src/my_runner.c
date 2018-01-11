@@ -29,10 +29,10 @@ void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	runner->time = sfClock_getElapsedTime(runner->clock);
 	runner->seconds = runner->time.microseconds / 1000000.0;
 	if (runner->seconds > 0.05) {
-		if (objects->char_r.left < 920)
-			objects->char_r.left += 84;
+		if (objects->char_r.left > 250)
+			objects->char_r.left -= 83;
 		else
-			objects->char_r.left = 0;
+			objects->char_r.left = 830;
 		if (objects->obst_r.left < 300)
 			objects->obst_r.left += 100;
 		else

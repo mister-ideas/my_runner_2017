@@ -17,7 +17,7 @@ void check_keys(runner_t *runner, objects_t *objects)
 		if (runner->event.type == sfEvtKeyPressed
 		&& runner->event.key.code == sfKeySpace
 		&& objects->char_p.y == 930) {
-			objects->char_m.y = -4;
+			objects->char_m.y = -6;
 			sfMusic_play(runner->m_jump);
 		}
 	}
