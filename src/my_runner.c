@@ -28,7 +28,7 @@ void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfSprite_setTextureRect(objects->obst_s, objects->obst_r);
 	runner->time = sfClock_getElapsedTime(runner->clock);
 	runner->seconds = runner->time.microseconds / 1000000.0;
-	if (runner->seconds > 0.05) {
+	if (runner->seconds > 0.04) {
 		if (objects->char_r.left > 250)
 			objects->char_r.left -= 83;
 		else
