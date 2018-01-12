@@ -24,14 +24,18 @@ int init_parallax(parallax_t *parallax)
 
 int init_objects(objects_t *objects)
 {
+	if (init_clock(objects) == 1)
+		return (1);
 	if (init_character(objects) == 1)
 		return (1);
-	if (init_obstacle(objects) == 1)
+	if (init_obstacle1(objects) == 1)
+		return (1);
+	if (init_obstacle2(objects) == 1)
 		return (1);
 	return (0);
 }
 
-int init_music(runner_t *runner)
+int init_misc(runner_t *runner)
 {
 	runner->m_back = sfMusic_createFromFile(M_BACK_PATH);
 	if (!runner->m_back)
@@ -40,6 +44,12 @@ int init_music(runner_t *runner)
 	sfMusic_play(runner->m_back);
 	runner->m_jump = sfMusic_createFromFile(M_JUMP_PATH);
 	if (!runner->m_jump)
+		return (1);
+	runner->score = 0;
+	runner->score_text_p.x = 1780;
+	runner->score_text_p.y = 25;
+	runner->font = sfFont_createFromFile(FONT_PATH);
+	if (!runner->font)
 		return (1);
 	return (0);
 }
@@ -50,9 +60,12 @@ int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects)
 		return (1);
 	if (init_objects(objects) == 1)
 		return (1);
-	if (init_music(runner) == 1)
+	if (init_misc(runner) == 1)
 		return (1);
-	runner->clock = sfClock_create();
+	runner->score_text = sfText_create();
+	runner->clock1 = sfClock_create();
+	runner->clock2 = sfClock_create();
+	runner->clock3 = sfClock_create();
 	sfRenderWindow_setMouseCursorVisible(runner->window, sfFalse);
 	sfRenderWindow_setFramerateLimit(runner->window, 60);
 	return (0);

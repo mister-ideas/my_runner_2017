@@ -21,20 +21,33 @@
 #define M3_PATH "ressources/img/m3.png"
 #define ROAD_PATH "ressources/img/road.png"
 #define CHAR_PATH "ressources/img/character.png"
-#define OBST_PATH "ressources/img/obstacle.png"
+#define OBST1_PATH "ressources/img/obstacle1.png"
+#define OBST2_PATH "ressources/img/obstacle2.png"
+#define CLOCK_PATH "ressources/img/clock.png"
 
 #define M_BACK_PATH "ressources/music/back.wav"
 #define M_JUMP_PATH "ressources/music/jump.wav"
 #define M_LOSE_PATH "ressources/music/lose.wav"
+#define FONT_PATH "ressources/font/XpressiveRegular.ttf"
 
 typedef struct runner {
 	sfRenderWindow *window;
 	sfEvent event;
 	sfMusic *m_back;
 	sfMusic *m_jump;
-	sfClock *clock;
-	sfTime time;
-	float seconds;
+	int score;
+	sfText *score_text;
+	sfVector2f score_text_p;
+	sfFont *font;
+	sfClock *clock1;
+	sfClock *clock2;
+	sfClock *clock3;
+	sfTime time1;
+	sfTime time2;
+	sfTime time3;
+	float seconds1;
+	float seconds2;
+	float seconds3;
 } runner_t;
 
 typedef struct parallax {
@@ -62,15 +75,24 @@ typedef struct parallax {
 
 typedef struct objects {
 	sfSprite *char_s;
-	sfSprite *obst_s;
+	sfSprite *obst1_s;
+	sfSprite *obst2_s;
+	sfSprite *clock_s;
 	sfTexture *char_t;
-	sfTexture *obst_t;
+	sfTexture *obst1_t;
+	sfTexture *obst2_t;
+	sfTexture *clock_t;
 	sfVector2f char_p;
-	sfVector2f obst_p;
+	sfVector2f obst1_p;
+	sfVector2f obst2_p;
+	sfVector2f clock_p;
 	sfVector2f char_m;
-	sfVector2f obst_m;
+	sfVector2f obst1_m;
+	sfVector2f obst2_m;
+	sfVector2f clock_m;
 	sfIntRect char_r;
-	sfIntRect obst_r;
+	sfIntRect obst1_r;
+	sfIntRect obst2_r;
 } objects_t;
 
 /* my_runner.c */
@@ -84,7 +106,7 @@ void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 int init_parallax(parallax_t *parallax);
 int init_objects(objects_t *objects);
-int init_music(runner_t *runner);
+int init_misc(runner_t *runner);
 int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* parallax.c */
@@ -97,8 +119,10 @@ int init_road(parallax_t *parallax);
 
 /* objects.c */
 
+int init_clock(objects_t *objects);
 int init_character(objects_t *objects);
-int init_obstacle(objects_t *objects);
+int init_obstacle1(objects_t *objects);
+int init_obstacle2(objects_t *objects);
 
 /* events.c */
 
@@ -113,6 +137,8 @@ void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects);
 /* tools.c */
 
 sfRenderWindow *window_create(unsigned int width, unsigned int height);
+void set_score_text(char score[], runner_t *runner);
+void convert_score(char str[], int num);
 void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 #endif

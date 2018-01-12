@@ -50,7 +50,8 @@ void check_layers(parallax_t *parallax)
 void check_objects(runner_t *runner, objects_t *objects)
 {
 	objects->char_p = sfSprite_getPosition(objects->char_s);
-	objects->obst_p = sfSprite_getPosition(objects->obst_s);
+	objects->obst1_p = sfSprite_getPosition(objects->obst1_s);
+	objects->obst2_p = sfSprite_getPosition(objects->obst2_s);
 	if (objects->char_p.y < 780)
 		objects->char_m.y = 6;
 	if (objects->char_p.y > 930) {
@@ -58,14 +59,12 @@ void check_objects(runner_t *runner, objects_t *objects)
 		objects->char_p.y = 930;
 		sfSprite_setPosition(objects->char_s, objects->char_p);
 	}
-	if (objects->obst_p.x < -100) {
-	objects->obst_p.x = 1920;
-	sfSprite_setPosition(objects->obst_s, objects->obst_p);
+	if (objects->obst1_p.x < -70) {
+		objects->obst1_p.x = 1920;
+		sfSprite_setPosition(objects->obst1_s, objects->obst1_p);
 	}
-	if (objects->char_p.x + 86 > objects->obst_p.x
-	    && objects->char_p.x + 86 < objects->obst_p.x + 100
-	    && objects->char_p.y + 86 > objects->obst_p.y
-	    && objects->char_p.y +86 < objects->obst_p.y + 100) {
-		sfRenderWindow_close(runner->window);
+	if (objects->obst2_p.x < -70) {
+		objects->obst2_p.x = 1920;
+		sfSprite_setPosition(objects->obst2_s, objects->obst2_p);
 	}
 }
