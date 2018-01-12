@@ -25,7 +25,7 @@
 #define OBST2_PATH "ressources/img/obstacle2.png"
 #define CLOCK_PATH "ressources/img/clock.png"
 
-#define M_BACK_PATH "ressources/music/back.wav"
+#define M_BACK_PATH "ressources/music/back.ogg"
 #define M_JUMP_PATH "ressources/music/jump.wav"
 #define M_LOSE_PATH "ressources/music/lose.wav"
 #define FONT_PATH "ressources/font/XpressiveRegular.ttf"
