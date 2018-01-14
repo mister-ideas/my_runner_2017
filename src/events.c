@@ -16,7 +16,7 @@ void check_keys(runner_t *runner, objects_t *objects)
 			sfRenderWindow_close(runner->window);
 		if (runner->event.type == sfEvtKeyPressed
 		&& runner->event.key.code == sfKeySpace
-		&& objects->char_p.y == 930) {
+		&& objects->char_p.y == 920) {
 			objects->char_m.y = -6;
 			sfMusic_play(runner->m_jump);
 		}
@@ -47,16 +47,16 @@ void check_layers(parallax_t *parallax)
 	sfSprite_setPosition(parallax->road_s, parallax->road_p);
 }
 
-void check_objects(runner_t *runner, objects_t *objects)
+void check_objects(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	objects->char_p = sfSprite_getPosition(objects->char_s);
 	objects->obst1_p = sfSprite_getPosition(objects->obst1_s);
 	objects->obst2_p = sfSprite_getPosition(objects->obst2_s);
 	if (objects->char_p.y < 780)
 		objects->char_m.y = 6;
-	if (objects->char_p.y > 930) {
+	if (objects->char_p.y > 920) {
 		objects->char_m.y = 0;
-		objects->char_p.y = 930;
+		objects->char_p.y = 920;
 		sfSprite_setPosition(objects->char_s, objects->char_p);
 	}
 	if (objects->obst1_p.x < -70) {
@@ -67,4 +67,10 @@ void check_objects(runner_t *runner, objects_t *objects)
 		objects->obst2_p.x = 1920;
 		sfSprite_setPosition(objects->obst2_s, objects->obst2_p);
 	}
+	if (((objects->char_p.x + 74 > objects->obst1_p.x && objects->char_p.x + 74 < objects->obst1_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst1_p.y && objects->char_p.y + 70 < objects->obst1_p.y + 70))
+	|| ((objects->char_p.x > objects->obst1_p.x && objects->char_p.x < objects->obst1_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst1_p.y && objects->char_p.y + 70 < objects->obst1_p.y + 70)
+	&& (objects->char_p.y < 920)))
+		objects->obst1_m.x = 0;
 }

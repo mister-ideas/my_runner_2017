@@ -11,7 +11,7 @@ void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	check_keys(runner, objects);
 	check_layers(parallax);
-	check_objects(runner, objects);
+	check_objects(runner, parallax, objects);
 }
 
 void clock(runner_t *runner, objects_t *objects)

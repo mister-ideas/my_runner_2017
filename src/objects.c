@@ -33,7 +33,7 @@ int init_character(objects_t *objects)
 	objects->char_s = sfSprite_create();
 	sfSprite_setTexture(objects->char_s, objects->char_t, sfTrue);
 	objects->char_p.x = 180;
-	objects->char_p.y = 950;
+	objects->char_p.y = 920;
 	objects->char_m.x = 0;
 	sfSprite_setPosition(objects->char_s, objects->char_p);
 	return (0);

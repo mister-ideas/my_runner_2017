@@ -93,6 +93,7 @@ typedef struct objects {
 	sfIntRect char_r;
 	sfIntRect obst1_r;
 	sfIntRect obst2_r;
+	sfIntRect inter;
 } objects_t;
 
 /* my_runner.c */
@@ -128,7 +129,7 @@ int init_obstacle2(objects_t *objects);
 
 void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
-void check_objects(runner_t *runner, objects_t *objects);
+void check_objects(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* display.c */
 
