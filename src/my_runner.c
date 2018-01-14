@@ -64,7 +64,7 @@ int check_map(runner_t *runner, char **av)
 	getline(&runner->second_floor, &buff_size, file);
 	getline(&runner->first_floor, &buff_size, file);
 	if (check_chars(runner) == 1) {
-		write(2, "Wrong map syntax! Check README file.\n", 37);
+		write(2, "Wrong map syntax! Check map.legend file.\n", 37);
 		return (1);
 	}
 	fclose(file);
