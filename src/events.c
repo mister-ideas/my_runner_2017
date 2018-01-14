@@ -73,4 +73,10 @@ void check_objects(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	&& (objects->char_p.y + 70 > objects->obst1_p.y && objects->char_p.y + 70 < objects->obst1_p.y + 70)
 	&& (objects->char_p.y < 920)))
 		objects->obst1_m.x = 0;
+	if (((objects->char_p.x + 74 > objects->obst2_p.x && objects->char_p.x + 74 < objects->obst2_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst2_p.y && objects->char_p.y + 70 < objects->obst2_p.y + 70))
+	|| ((objects->char_p.x > objects->obst2_p.x && objects->char_p.x < objects->obst2_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst2_p.y && objects->char_p.y + 70 < objects->obst2_p.y + 70)
+	&& (objects->char_p.y < 920)))
+		objects->obst2_m.x = 0;
 }
