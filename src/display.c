@@ -37,9 +37,8 @@ void help_text(void)
 	my_putstr("	Runner\n");
 	my_putstr("======================\n\n");
 	my_putstr("USAGE\n");
-	my_putstr("	./my_runner [OPTIONS]\n\n");
+	my_putstr("	./my_runner map.legend\n\n");
 	my_putstr("OPTIONS\n");
-	my_putstr("	path	Launch the game with map provided.\n");
 	my_putstr("	-h	Print usage and exit.\n\n");
 	my_putstr("Don't forget to read the 'README' file for more info!\n");
 }
