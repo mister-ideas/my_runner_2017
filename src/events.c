@@ -12,8 +12,10 @@ void check_keys(runner_t *runner, objects_t *objects)
 	while (sfRenderWindow_pollEvent(runner->window, &runner->event)) {
 		if (runner->event.type == sfEvtClosed
 		|| (runner->event.type == sfEvtKeyPressed
-		&& runner->event.key.code == sfKeyEscape))
+		&& runner->event.key.code == sfKeyEscape)) {
 			sfRenderWindow_close(runner->window);
+			closed_text();
+		}
 		if (runner->event.type == sfEvtKeyPressed
 		&& runner->event.key.code == sfKeySpace
 		&& objects->char_p.y == 920) {
@@ -47,7 +49,7 @@ void check_layers(parallax_t *parallax)
 	sfSprite_setPosition(parallax->road_s, parallax->road_p);
 }
 
-void check_objects(runner_t *runner, parallax_t *parallax, objects_t *objects)
+void check_position(objects_t *objects)
 {
 	objects->char_p = sfSprite_getPosition(objects->char_s);
 	objects->obst1_p = sfSprite_getPosition(objects->obst1_s);
@@ -67,16 +69,28 @@ void check_objects(runner_t *runner, parallax_t *parallax, objects_t *objects)
 		objects->obst2_p.x = 1920;
 		sfSprite_setPosition(objects->obst2_s, objects->obst2_p);
 	}
-	if (((objects->char_p.x + 74 > objects->obst1_p.x && objects->char_p.x + 74 < objects->obst1_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst1_p.y && objects->char_p.y + 70 < objects->obst1_p.y + 70))
-	|| ((objects->char_p.x > objects->obst1_p.x && objects->char_p.x < objects->obst1_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst1_p.y && objects->char_p.y + 70 < objects->obst1_p.y + 70)
+}
+
+void check_collision(objects_t *objects)
+{
+	if (((objects->char_p.x + 74 > objects->obst1_p.x
+	&& objects->char_p.x + 74 < objects->obst1_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst1_p.y
+	&& objects->char_p.y + 70 < objects->obst1_p.y + 70))
+	|| ((objects->char_p.x > objects->obst1_p.x
+	&& objects->char_p.x < objects->obst1_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst1_p.y
+	&& objects->char_p.y + 70 < objects->obst1_p.y + 70)
 	&& (objects->char_p.y < 920)))
 		objects->obst1_m.x = 0;
-	if (((objects->char_p.x + 74 > objects->obst2_p.x && objects->char_p.x + 74 < objects->obst2_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst2_p.y && objects->char_p.y + 70 < objects->obst2_p.y + 70))
-	|| ((objects->char_p.x > objects->obst2_p.x && objects->char_p.x < objects->obst2_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst2_p.y && objects->char_p.y + 70 < objects->obst2_p.y + 70)
+	if (((objects->char_p.x + 74 > objects->obst2_p.x
+	&& objects->char_p.x + 74 < objects->obst2_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst2_p.y
+	&& objects->char_p.y + 70 < objects->obst2_p.y + 70))
+	|| ((objects->char_p.x > objects->obst2_p.x
+	&& objects->char_p.x < objects->obst2_p.x + 70)
+	&& (objects->char_p.y + 70 > objects->obst2_p.y
+	&& objects->char_p.y + 70 < objects->obst2_p.y + 70)
 	&& (objects->char_p.y < 920)))
 		objects->obst2_m.x = 0;
 }

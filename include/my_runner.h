@@ -129,11 +129,14 @@ int init_obstacle2(objects_t *objects);
 
 void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
-void check_objects(runner_t *runner, parallax_t *parallax, objects_t *objects);
+void check_position(objects_t *objects);
+void check_collision(objects_t *objcts);
 
 /* display.c */
 
 void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects);
+void help_text(void);
+void closed_text(void);
 
 /* tools.c */
 

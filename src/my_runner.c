@@ -11,7 +11,8 @@ void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	check_keys(runner, objects);
 	check_layers(parallax);
-	check_objects(runner, parallax, objects);
+	check_position(objects);
+	check_collision(objects);
 }
 
 void clock(runner_t *runner, objects_t *objects)
@@ -79,8 +80,10 @@ int main(int ac, char **av)
 		return (84);
 	if (ac != 2)
 		return (84);
-	if (av[1][0] == '-' && av[1][1] == 'h')
+	if (av[1][0] == '-' && av[1][1] == 'h') {
+		help_text();
 		return (0);
+	}
 	if (game_init(&runner, &parallax, &objects) == 1)
 		return (84);
 	while (sfRenderWindow_isOpen(runner.window))

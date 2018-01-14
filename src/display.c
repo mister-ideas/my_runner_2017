@@ -22,3 +22,24 @@ void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfRenderWindow_drawSprite(runner->window, objects->char_s, NULL);
 	sfRenderWindow_display(runner->window);
 }
+
+void closed_text(void)
+{
+	my_putstr("====================\n");
+	my_putstr("You left the game!");
+	my_putchar('\n');
+	my_putstr("====================\n");
+}
+
+void help_text(void)
+{
+	my_putstr("======================\n");
+	my_putstr("	Runner\n");
+	my_putstr("======================\n\n");
+	my_putstr("USAGE\n");
+	my_putstr("	./my_runner [OPTIONS]\n\n");
+	my_putstr("OPTIONS\n");
+	my_putstr("	map_path	Launch the game with map provided.\n");
+	my_putstr("	-h		Print usage and exit.\n\n");
+	my_putstr("Don't forget to read the 'README' file for more info!\n");
+}
