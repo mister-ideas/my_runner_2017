@@ -99,9 +99,15 @@ typedef struct objects {
 /* my_runner.c */
 
 void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
-void clock(runner_t *runner, objects_t *objects);
 void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects);
 void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
+
+/* clocks.c */
+
+void score_clock(runner_t *runner);
+void character_clock(runner_t *runner, objects_t *objects);
+void obstacles_clock(runner_t *runner, objects_t *objects);
+void clocks(runner_t *runner, objects_t *objects);
 
 /* init.c */
 

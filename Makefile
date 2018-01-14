@@ -8,6 +8,7 @@
 SRC_DIR=	src
 
 SRC=		$(SRC_DIR)/my_runner.c	\
+		$(SRC_DIR)/clocks.c	\
 		$(SRC_DIR)/init.c	\
 		$(SRC_DIR)/parallax.c	\
 		$(SRC_DIR)/objects.c	\
