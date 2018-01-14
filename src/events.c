@@ -79,3 +79,20 @@ void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p)
 		sfMusic_stop(runner->m_back);
 	}
 }
+
+void check_chars(runner_t *runner)
+{
+	if (my_strlen(runner->first_floor) != my_strlen(runner->second_floor))
+		return (1);
+	for (int i = 0; runner->first_floor[i]; i++) {
+		if (runner->first_floor[i] != '0'
+		&& runner->first_floor[i] != '1'
+		&& runner->first_floor[i] != '2')
+			return (1);
+	}
+	for (int i = 0; runner->second_floor[i]; i++) {
+		if (runner->second_floor[i] != '1'
+		&& runner->second_floor[i] != '2')
+			return (1);
+	}
+}

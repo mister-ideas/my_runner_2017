@@ -113,9 +113,10 @@ typedef struct objects {
 
 /* my_runner.c */
 
+void check_status(runner_t *runner, parallax_t *parallax, objects_t *objects);
 void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
 void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects);
-void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects);
+int check_map(runner_t *runner, char **av);
 
 /* clocks.c */
 
@@ -129,6 +130,7 @@ void clocks(runner_t *runner, objects_t *objects);
 int init_parallax(parallax_t *parallax);
 int init_objects(objects_t *objects);
 int init_misc(objects_t *objects, runner_t *runner);
+int init_end(runner_t *runner);
 int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* parallax.c */
@@ -152,6 +154,7 @@ void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
 void check_position(objects_t *objects);
 void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p);
+void check_chars(runner_t *runner);
 
 /* read_map.c */
 
@@ -174,6 +177,7 @@ void closed_text(void);
 sfRenderWindow *window_create(unsigned int width, unsigned int height);
 void set_score_text(char score[], runner_t *runner);
 void convert_score(char str[], int num);
+void misc_free(runner_t *runner, objects_t *objects);
 void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 #endif
