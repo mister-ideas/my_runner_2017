@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -154,7 +155,7 @@ void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
 void check_position(objects_t *objects);
 void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p);
-void check_chars(runner_t *runner);
+int check_chars(runner_t *runner);
 
 /* read_map.c */
 

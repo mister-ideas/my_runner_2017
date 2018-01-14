@@ -80,7 +80,7 @@ void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p)
 	}
 }
 
-void check_chars(runner_t *runner)
+int check_chars(runner_t *runner)
 {
 	if (my_strlen(runner->first_floor) != my_strlen(runner->second_floor))
 		return (1);
@@ -95,4 +95,5 @@ void check_chars(runner_t *runner)
 		&& runner->second_floor[i] != '2')
 			return (1);
 	}
+	return (0);
 }
