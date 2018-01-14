@@ -54,7 +54,7 @@ void check_position(objects_t *objects)
 	objects->char_p = sfSprite_getPosition(objects->char_s);
 	objects->obst1_p = sfSprite_getPosition(objects->obst1_s);
 	objects->obst2_p = sfSprite_getPosition(objects->obst2_s);
-	if (objects->char_p.y < 680)
+	if (objects->char_p.y < 730)
 		objects->char_m.y = 6;
 	if (objects->char_p.y > 920) {
 		objects->char_m.y = 0;
@@ -63,7 +63,7 @@ void check_position(objects_t *objects)
 	}
 }
 
-void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p)
+void check_collision(sfVector2f char_p, sfVector2f obst_p)
 {
 	if (((char_p.x + 74 > obst_p.x
 	&& char_p.x + 74 < obst_p.x + 70)
@@ -74,7 +74,6 @@ void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p)
 	&& (char_p.y + 70 > obst_p.y
 	&& char_p.y + 70 < obst_p.y + 70)
 	&& (char_p.y < 920))) {
-		sfRenderWindow_close(runner->window);
-		finished_text(runner);
+		//game_over
 	}
 }

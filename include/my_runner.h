@@ -143,7 +143,15 @@ int init_obstacle2(objects_t *objects);
 void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
 void check_position(objects_t *objects);
-void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p);
+void check_collision(sfVector2f char_p, sfVector2f obst_p);
+
+/* read_map.c */
+
+void obst1_obst2(runner_t *runner, objects_t *objects, int pos);
+void obst2_obst1(runner_t *runner, objects_t *objects, int pos);
+void obst1_void(runner_t *runner, objects_t *objects, int pos);
+void obst2_void(runner_t *runner, objects_t *objects, int pos);
+void read_map(runner_t *runner, objects_t *objects);
 
 /* display.c */
 
