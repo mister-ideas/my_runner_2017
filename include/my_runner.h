@@ -143,11 +143,12 @@ int init_obstacle2(objects_t *objects);
 void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
 void check_position(objects_t *objects);
-void check_collision(objects_t *objcts);
+void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p);
 
 /* display.c */
 
 void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects);
+void finished_text(runner_t *runner);
 void help_text(void);
 void closed_text(void);
 

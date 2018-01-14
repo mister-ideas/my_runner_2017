@@ -21,6 +21,15 @@ void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfRenderWindow_display(runner->window);
 }
 
+void finished_text(runner_t *runner)
+{
+	my_putstr("====================\n");
+	my_putstr("Final score: ");
+	my_put_nbr(runner->score);
+	my_putchar('\n');
+	my_putstr("====================\n");
+}
+
 void closed_text(void)
 {
 	my_putstr("====================\n");

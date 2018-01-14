@@ -12,7 +12,8 @@ void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	check_keys(runner, objects);
 	check_layers(parallax);
 	check_position(objects);
-	check_collision(objects);
+	check_collision(runner, objects->char_p, objects->obst1_p);
+	check_collision(runner, objects->char_p, objects->obst2_p);
 }
 
 void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)

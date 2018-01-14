@@ -61,36 +61,20 @@ void check_position(objects_t *objects)
 		objects->char_p.y = 920;
 		sfSprite_setPosition(objects->char_s, objects->char_p);
 	}
-	//if (objects->obst1_p.x < -70) {
-	//objects->obst1_p.x = 1920;
-	//sfSprite_setPosition(objects->obst1_s, objects->obst1_p);
-	//}
-//if (objects->obst2_p.x < -70) {
-//objects->obst2_p.x = 1920;
-//sfSprite_setPosition(objects->obst2_s, objects->obst2_p);
-//}
 }
 
-void check_collision(objects_t *objects)
+void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p)
 {
-	if (((objects->char_p.x + 74 > objects->obst1_p.x
-	&& objects->char_p.x + 74 < objects->obst1_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst1_p.y
-	&& objects->char_p.y + 70 < objects->obst1_p.y + 70))
-	|| ((objects->char_p.x > objects->obst1_p.x
-	&& objects->char_p.x < objects->obst1_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst1_p.y
-	&& objects->char_p.y + 70 < objects->obst1_p.y + 70)
-	&& (objects->char_p.y < 920)))
-		objects->obst1_m.x = 0;
-	if (((objects->char_p.x + 74 > objects->obst2_p.x
-	&& objects->char_p.x + 74 < objects->obst2_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst2_p.y
-	&& objects->char_p.y + 70 < objects->obst2_p.y + 70))
-	|| ((objects->char_p.x > objects->obst2_p.x
-	&& objects->char_p.x < objects->obst2_p.x + 70)
-	&& (objects->char_p.y + 70 > objects->obst2_p.y
-	&& objects->char_p.y + 70 < objects->obst2_p.y + 70)
-	&& (objects->char_p.y < 920)))
-		objects->obst2_m.x = 0;
+	if (((char_p.x + 74 > obst_p.x
+	&& char_p.x + 74 < obst_p.x + 70)
+	&& (char_p.y + 70 > obst_p.y
+	&& char_p.y + 70 < obst_p.y + 70))
+	|| ((char_p.x > obst_p.x
+	&& char_p.x < obst_p.x + 70)
+	&& (char_p.y + 70 > obst_p.y
+	&& char_p.y + 70 < obst_p.y + 70)
+	&& (char_p.y < 920))) {
+		sfRenderWindow_close(runner->window);
+		finished_text(runner);
+	}
 }
