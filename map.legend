@@ -2,7 +2,7 @@
 |MAP|
 *---*
 
-- '0' represents void in the map file.
+- '0' represents void in map file.
 - '1' represents first obstacle type in map file.
 - '2' represents second obstacle type in map file.
 - Other characters are de facto forbidden in map file.
