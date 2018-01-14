@@ -42,6 +42,7 @@ void game_over(parallax_t *parallax, objects_t *objects)
 	parallax->m2_m.x = 0;
 	parallax->m3_m.x = 0;
 	parallax->road_m.x = 0;
+	objects->char_m.y = 0;
 }
 
 void win(parallax_t *parallax, objects_t *objects)
@@ -59,6 +60,7 @@ void win(parallax_t *parallax, objects_t *objects)
 	parallax->m2_m.x = 0;
 	parallax->m3_m.x = 0;
 	parallax->road_m.x = 0;
+	objects->char_m.y = 0;
 }
 
 void closed_text(void)

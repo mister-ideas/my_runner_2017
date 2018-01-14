@@ -54,7 +54,7 @@ void check_position(objects_t *objects)
 	objects->char_p = sfSprite_getPosition(objects->char_s);
 	objects->obst1_p = sfSprite_getPosition(objects->obst1_s);
 	objects->obst2_p = sfSprite_getPosition(objects->obst2_s);
-	if (objects->char_p.y < 730)
+	if (objects->char_p.y < 720)
 		objects->char_m.y = 6;
 	if (objects->char_p.y > 920) {
 		objects->char_m.y = 0;
@@ -82,18 +82,20 @@ void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p)
 
 int check_chars(runner_t *runner)
 {
-	if (my_strlen(runner->first_floor) != my_strlen(runner->second_floor))
-		return (1);
 	for (int i = 0; runner->first_floor[i]; i++) {
-		if (runner->first_floor[i] != '0'
-		&& runner->first_floor[i] != '1'
-		&& runner->first_floor[i] != '2')
+		if (runner->first_floor[i] != '1'
+		&& runner->first_floor[i] != '2'
+		&& runner->first_floor[i] != '\n')
 			return (1);
 	}
 	for (int i = 0; runner->second_floor[i]; i++) {
-		if (runner->second_floor[i] != '1'
-		&& runner->second_floor[i] != '2')
+		if (runner->second_floor[i] != '0'
+		&& runner->second_floor[i] != '1'
+		&& runner->second_floor[i] != '2'
+		&& runner->second_floor[i] != '\n')
 			return (1);
 	}
+	if (my_strlen(runner->first_floor) != my_strlen(runner->second_floor))
+		return (1);
 	return (0);
 }

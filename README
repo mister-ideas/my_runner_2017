@@ -46,6 +46,7 @@ vincent.attali@epitech.eu
 - The map's second line represents the first floor and can't contain a '0'.
 - A double '0' column will not be take in count.
 - You have to set the same number of characters in each line.
+- Don't forget to add a '\n' after the second line!
 - The maximum line lenght is 100 and can be modified if necessary.
 
 ====================
