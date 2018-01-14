@@ -67,6 +67,6 @@ int init_obstacle2(objects_t *objects)
 	objects->obst2_s = sfSprite_create();
 	sfSprite_setTexture(objects->obst2_s, objects->obst2_t, sfTrue);
 	objects->obst2_m.x = -8;
-	sfSprite_setPosition(objects->obst1_s, objects->second_floor_p);
+	sfSprite_setPosition(objects->obst2_s, objects->second_floor_p);
 	return (0);
 }
