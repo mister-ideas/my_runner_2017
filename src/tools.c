@@ -44,8 +44,24 @@ void convert_score(char str[], int num)
 	str[len] = '\0';
 }
 
+void misc_free(runner_t *runner, objects_t *objects)
+{
+	sfTexture_destroy(objects->clock_t);
+	sfTexture_destroy(runner->over_t);
+	sfTexture_destroy(runner->win_t);
+	sfSprite_destroy(objects->clock_s);
+	sfSprite_destroy(runner->over_s);
+	sfSprite_destroy(runner->win_s);
+	sfMusic_destroy(runner->m_back);
+	sfMusic_destroy(runner->m_jump);
+	sfMusic_destroy(runner->m_lose);
+	sfText_destroy(runner->score_text);
+	sfFont_destroy(runner->font);
+}
+
 void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
+	misc_free(runner, objects);
 	sfTexture_destroy(parallax->back_t);
 	sfTexture_destroy(parallax->m1_t);
 	sfTexture_destroy(parallax->m2_t);
@@ -62,7 +78,5 @@ void game_free(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfSprite_destroy(objects->char_s);
 	sfSprite_destroy(objects->obst1_s);
 	sfSprite_destroy(objects->obst2_s);
-	sfMusic_destroy(runner->m_back);
-	sfMusic_destroy(runner->m_jump);
 	sfRenderWindow_destroy(runner->window);
 }

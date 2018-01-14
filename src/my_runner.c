@@ -7,20 +7,31 @@
 
 #include "my_runner.h"
 
+void check_status(runner_t *runner, parallax_t *parallax, objects_t *objects)
+{
+	if (runner->status == 1)
+		win(parallax, objects);
+	if (runner->status == 2)
+		game_over(parallax, objects);
+}
+
 void check_events(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	check_keys(runner, objects);
-	check_layers(parallax);
-	check_position(objects);
-	read_map(runner, objects);
-	check_collision(objects->char_p, objects->obst1_p);
-	check_collision(objects->char_p, objects->obst2_p);
+	if (runner->status == 0) {
+		check_layers(parallax);
+		check_position(objects);
+		read_map(runner, objects);
+		check_collision(runner, objects->char_p, objects->obst1_p);
+		check_collision(runner, objects->char_p, objects->obst2_p);
+	}
 }
 
 void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 {
 	char score[12];
 
+	check_status(runner, parallax, objects);
 	check_events(runner, parallax, objects);
 	convert_score(score, runner->score);
 	set_score_text(score, runner);
@@ -35,7 +46,8 @@ void game_loop(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfSprite_setTextureRect(objects->char_s, objects->char_r);
 	sfSprite_setTextureRect(objects->obst1_s, objects->obst1_r);
 	sfSprite_setTextureRect(objects->obst2_s, objects->obst2_r);
-	clocks(runner, objects);
+	if (runner->status == 0)
+		clocks(runner, objects);
 	window_display(runner, parallax, objects);
 }
 

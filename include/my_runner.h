@@ -27,6 +27,8 @@
 #define OBST1_PATH "ressources/img/obstacle1.png"
 #define OBST2_PATH "ressources/img/obstacle2.png"
 #define CLOCK_PATH "ressources/img/clock.png"
+#define GAME_OVER_PATH "ressources/img/game_over.png"
+#define WIN_PATH "ressources/img/win.png"
 
 #define M_BACK_PATH "ressources/music/back.ogg"
 #define M_JUMP_PATH "ressources/music/jump.wav"
@@ -34,16 +36,22 @@
 #define FONT_PATH "ressources/font/XpressiveRegular.ttf"
 
 typedef struct runner {
+	int status;
 	char *first_floor;
 	char *second_floor;
 	sfRenderWindow *window;
 	sfEvent event;
 	sfMusic *m_back;
 	sfMusic *m_jump;
+	sfMusic *m_lose;
 	int score;
-	sfText *score_text;
-	sfVector2f score_text_p;
 	sfFont *font;
+	sfText *score_text;
+	sfTexture *over_t;
+	sfTexture *win_t;
+	sfSprite *over_s;
+	sfSprite *win_s;
+	sfVector2f score_text_p;
 	sfClock *clock1;
 	sfClock *clock2;
 	sfClock *clock3;
@@ -143,7 +151,7 @@ int init_obstacle2(objects_t *objects);
 void check_keys(runner_t *runner, objects_t *objects);
 void check_layers(parallax_t *parallax);
 void check_position(objects_t *objects);
-void check_collision(sfVector2f char_p, sfVector2f obst_p);
+void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p);
 
 /* read_map.c */
 
@@ -156,7 +164,8 @@ void read_map(runner_t *runner, objects_t *objects);
 /* display.c */
 
 void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects);
-void finished_text(runner_t *runner);
+void game_over(parallax_t *parallax, objects_t *objects);
+void win(parallax_t *parallax, objects_t *objects);
 void help_text(void);
 void closed_text(void);
 

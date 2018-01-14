@@ -2,6 +2,8 @@
 	Runner
 ======================
 
+Finite runner game.
+
 *------*
 |AUTHOR|
 *------*
@@ -13,25 +15,32 @@ vincent.attali@epitech.eu
 |RULES|
 *-----*
 
-
+- Your goal is to avoid obstacles by jumping your character.
+- If you collide with an obstacle, you lose the game.
+- You have one point per second in live.
 
 *-----------------*
 |USER INTERACTIONS|
 *-----------------*
 
-
-
-*--------------*
-|GAME BEHAVIORS|
-*--------------*
-
-
+- Press SPACE to jump.
+- Press ESC or the cross of the window at any moment is you want to stop the game.
 
 *-----*
 |NOTES|
 *-----*
 
-
+- Your score is displayed during the game at the right top of the window.
+- If you stop the game, your final score will not be displayed at the end!
+- You can't resize the window.
+- 0 represents void in the map file.
+- 1 represents first obstacle type in the map file.
+- 2 represents second obstacle type in the map file.
+- The map's first line is the second floor.
+- The map's second line is the first floor and can't contain a '0'.
+- A double '0' column will not be take in count.
+- You have to set the same number of characters per line.
+- The maximum line lenght is 100 and can be modified if necessary.
 
 ====================
      Good game!

@@ -63,7 +63,7 @@ void check_position(objects_t *objects)
 	}
 }
 
-void check_collision(sfVector2f char_p, sfVector2f obst_p)
+void check_collision(runner_t *runner, sfVector2f char_p, sfVector2f obst_p)
 {
 	if (((char_p.x + 74 > obst_p.x
 	&& char_p.x + 74 < obst_p.x + 70)
@@ -74,6 +74,8 @@ void check_collision(sfVector2f char_p, sfVector2f obst_p)
 	&& (char_p.y + 70 > obst_p.y
 	&& char_p.y + 70 < obst_p.y + 70)
 	&& (char_p.y < 920))) {
-		//game_over
+		runner->status = 2;
+		sfMusic_play(runner->m_lose);
+		sfMusic_stop(runner->m_back);
 	}
 }

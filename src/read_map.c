@@ -34,6 +34,7 @@ void obst1_void(runner_t *runner, objects_t *objects, int pos)
 	if (runner->first_floor[pos] == '1'
 	&& runner->second_floor[pos] == '0') {
 		sfSprite_setPosition(objects->obst1_s, objects->first_floor_p);
+		sfSprite_setPosition(objects->obst2_s, objects->second_floor_p);
 		objects->obst1_m.x = -8;
 		objects->obst2_m.x = 0;
 	}
@@ -44,6 +45,7 @@ void obst2_void(runner_t *runner, objects_t *objects, int pos)
 	if (runner->first_floor[pos] == '2'
 	&& runner->second_floor[pos] == '0') {
 		sfSprite_setPosition(objects->obst2_s, objects->first_floor_p);
+		sfSprite_setPosition(objects->obst1_s, objects->second_floor_p);
 		objects->obst2_m.x = -8;
 		objects->obst1_m.x = 0;
 	}
@@ -59,6 +61,11 @@ void read_map(runner_t *runner, objects_t *objects)
 		obst2_obst1(runner, objects, pos);
 		obst1_void(runner, objects, pos);
 		obst2_void(runner, objects, pos);
+		if (runner->first_floor[pos] == '\0'
+		&& runner->first_floor[pos] == '\0') {
+			runner->status = 1;
+			sfMusic_stop(runner->m_back);
+		}
 		pos++;
 	}
 }
