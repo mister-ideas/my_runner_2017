@@ -54,7 +54,7 @@ void check_position(objects_t *objects)
 	objects->char_p = sfSprite_getPosition(objects->char_s);
 	objects->obst1_p = sfSprite_getPosition(objects->obst1_s);
 	objects->obst2_p = sfSprite_getPosition(objects->obst2_s);
-	if (objects->char_p.y < 780)
+	if (objects->char_p.y < 680)
 		objects->char_m.y = 6;
 	if (objects->char_p.y > 920) {
 		objects->char_m.y = 0;
