@@ -61,14 +61,14 @@ void check_position(objects_t *objects)
 		objects->char_p.y = 920;
 		sfSprite_setPosition(objects->char_s, objects->char_p);
 	}
-	if (objects->obst1_p.x < -70) {
-		objects->obst1_p.x = 1920;
-		sfSprite_setPosition(objects->obst1_s, objects->obst1_p);
-	}
-	if (objects->obst2_p.x < -70) {
-		objects->obst2_p.x = 1920;
-		sfSprite_setPosition(objects->obst2_s, objects->obst2_p);
-	}
+	//if (objects->obst1_p.x < -70) {
+	//objects->obst1_p.x = 1920;
+	//sfSprite_setPosition(objects->obst1_s, objects->obst1_p);
+	//}
+//if (objects->obst2_p.x < -70) {
+//objects->obst2_p.x = 1920;
+//sfSprite_setPosition(objects->obst2_s, objects->obst2_p);
+//}
 }
 
 void check_collision(objects_t *objects)

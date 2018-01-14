@@ -17,8 +17,6 @@ void window_display(runner_t *runner, parallax_t *parallax, objects_t *objects)
 	sfRenderWindow_drawSprite(runner->window, parallax->road_s, NULL);
 	sfRenderWindow_drawSprite(runner->window, objects->clock_s, NULL);
 	sfRenderWindow_drawText(runner->window, runner->score_text, NULL);
-	sfRenderWindow_drawSprite(runner->window, objects->obst1_s, NULL);
-	sfRenderWindow_drawSprite(runner->window, objects->obst2_s, NULL);
 	sfRenderWindow_drawSprite(runner->window, objects->char_s, NULL);
 	sfRenderWindow_display(runner->window);
 }

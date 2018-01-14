@@ -35,7 +35,7 @@ int init_objects(objects_t *objects)
 	return (0);
 }
 
-int init_misc(runner_t *runner)
+int init_misc(objects_t *objects, runner_t *runner)
 {
 	runner->m_back = sfMusic_createFromFile(M_BACK_PATH);
 	if (!runner->m_back)
@@ -45,6 +45,10 @@ int init_misc(runner_t *runner)
 	runner->m_jump = sfMusic_createFromFile(M_JUMP_PATH);
 	if (!runner->m_jump)
 		return (1);
+	objects->first_floor_p.x = 900;
+	objects->first_floor_p.y = 930;
+	objects->second_floor_p.x = 900;
+	objects->second_floor_p.y = 860;
 	runner->score = 0;
 	runner->score_text_p.x = 1780;
 	runner->score_text_p.y = 25;
@@ -60,7 +64,7 @@ int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects)
 		return (1);
 	if (init_objects(objects) == 1)
 		return (1);
-	if (init_misc(runner) == 1)
+	if (init_misc(objects, runner) == 1)
 		return (1);
 	runner->score_text = sfText_create();
 	runner->clock1 = sfClock_create();

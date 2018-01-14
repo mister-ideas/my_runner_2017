@@ -10,6 +10,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <SFML/System.h>
@@ -31,6 +34,8 @@
 #define FONT_PATH "ressources/font/XpressiveRegular.ttf"
 
 typedef struct runner {
+	char *first_floor;
+	char *second_floor;
 	sfRenderWindow *window;
 	sfEvent event;
 	sfMusic *m_back;
@@ -82,6 +87,8 @@ typedef struct objects {
 	sfTexture *obst1_t;
 	sfTexture *obst2_t;
 	sfTexture *clock_t;
+	sfVector2f first_floor_p;
+	sfVector2f second_floor_p;
 	sfVector2f char_p;
 	sfVector2f obst1_p;
 	sfVector2f obst2_p;
@@ -113,7 +120,7 @@ void clocks(runner_t *runner, objects_t *objects);
 
 int init_parallax(parallax_t *parallax);
 int init_objects(objects_t *objects);
-int init_misc(runner_t *runner);
+int init_misc(objects_t *objects, runner_t *runner);
 int game_init(runner_t *runner, parallax_t *parallax, objects_t *objects);
 
 /* parallax.c */
