@@ -11,6 +11,22 @@ Finite runner game.
 Vincent Attali
 vincent.attali@epitech.eu
 
+*--------*
+|BUILDING|
+*--------*
+
+$ make
+
+*-----*
+|USAGE|
+*-----*
+
+$ ./my_runner
+
+*-----*
+|RULES|
+*-----*
+
 *-----*
 |RULES|
 *-----*
